@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <main class="container-fluid">
+      <div class="row">
+        <div class="col-auto mx-auto mt-2 mb-2">
+          <h2>Password Generator</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-9 py-5 shadow rounded mx-auto">
+          <div class="row">
+            <div class="col-auto text-capitalize">
+              <h3>generate password</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 mx-auto"><hr class="my-2" /></div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 mx-auto">
+              <div
+                id="password"
+                class="text-capitalize text-center border rounded pt-4 pb-4 text-black-50"
+              >
+                your secure password:
+                <h3 class="text-black" id="yourpassword"></h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 mx-auto"><hr /></div>
+          </div>
+
+          <div class="row">
+            <div class="col-4 mx-auto">
+              <button
+                id="passwordgeneraterbutton"
+                class="btn btn-block btn-danger text-capitalize"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                generate password
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Password Length -->
+    <div
+      class="modal fade"
+      id="length"
+      tabindex="-1"
+      aria-labelledby="lengthModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="lengthModalLabel">
+              password parameters
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h6 class="text-center text-capatilize">password length</h6>
+            <div class="row">
+              <div class="col-12">
+                <input
+                  class="form-control"
+                  id="inputpasswordlength"
+                  type="range"
+                  min="8"
+                  max="128"
+                  value="8"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="$(current()).modal('toggle');$(next()).modal('show')"
+            >
+              next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IncludeUpperCase -->
+    <div
+      class="modal fade"
+      id="uppercase"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              password parameters
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h6 class="text-center text-capitalize">
+              include upper case characters
+            </h6>
+            <div class="row">
+              <div class="col-12">
+                <input
+                  id="inputupperchar"
+                  type="checkbox"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="$(current()).modal('toggle');$(next()).modal('show')"
+            >
+              next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Special Characters -->
+
+    <div
+      class="modal fade"
+      id="specialcharacter"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              password parameters
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h6 class="text-center text-capitalize">
+              include special characters
+            </h6>
+            <div class="row">
+              <div class="col-12">
+                <input
+                  id="inputspecialchar"
+                  type="checkbox"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="$(current()).modal('toggle');$(next()).modal('show')"
+            >
+              next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Digits -->
+
+    <div
+      class="modal fade"
+      id="digits"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              password parameters
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h6 class="text-center text-capitalize">
+              include digits characters
+            </h6>
+            <div class="row">
+              <div class="col-12">
+                <input
+                  id="inputdigitchar"
+                  type="checkbox"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="$(current()).modal('toggle');$(next()).modal('show');reset();update()"
+            >
+              finish
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/script.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
